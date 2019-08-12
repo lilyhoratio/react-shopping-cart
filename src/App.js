@@ -17,20 +17,29 @@ function App() {
   //   console.log("CART		:", cart);
 
   const addItem = item => {
-    setCart([...cart, item]);
+    const newItem = {
+      id: `${item.id}${Date.now()}`,
+      title: item.title,
+      price: item.price,
+      image: item.image
+    };
+    console.log(newItem);
+    // setCart([...cart, item]);
+    setCart([...cart, newItem]);
   };
 
   const removeItem = itemId => {
     // for all items currently in cart, isolate the ones that weren't removed/clicked. set state of cart to those remaining items
 
-    console.log(cart);
     const filteredItems = cart.filter(cartItem => {
-      //   console.log(typeof cartItem.id);
-      //   console.log(typeof item.id);
+      console.log("cart state id		:", cartItem.id);
+      console.log("clicked item id		:", itemId);
+
       return cartItem.id !== itemId;
     });
     // console.log("delete id", filteredItems);
     setCart(filteredItems);
+    console.log("after removed cart state		:", cart);
   };
 
   return (
