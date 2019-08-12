@@ -20,35 +20,35 @@ In this project you'll take take an existing e-commerce store and refactor the a
 
 Before you get started, please take a few minutes and get acquainted with this application. Understand what's going on and how it's working.
 
-- If you look in the `App.js` you'll notice there are currently two state properties - `products` to keep track of all available products, and `cart` that will keep track of all the items in our `cart`.
+[x] If you look in the `App.js` you'll notice there are currently two state properties - `products` to keep track of all available products, and `cart` that will keep track of all the items in our `cart`.
 
-- You'll also notice inside of our `App.js` we have 3 components. A navigation component and two route based components. Each of those components are all being passed either our `cart` state or `product` state as props, when we start to scale our application and add more props our codebase is going to start to become very cumbersome and will make our application hard to work with.
+[x] You'll also notice inside of our `App.js` we have 3 components. A navigation component and two route based components. Each of those components are all being passed either our `cart` state or `product` state as props, when we start to scale our application and add more props our codebase is going to start to become very cumbersome and will make our application hard to work with.
 
 - To combat this from happening we're going to refactor our application to use `Context API`, making it easier and more effiecent to access data across our application.
 
 **STEP 1 - Creating ProductContext**
 
-- In `src`, create a new folder named `contexts`, this folder is going to be used to hold all of `context objects` we create.
+[x] In `src`, create a new folder named `contexts`, this folder is going to be used to hold all of `context objects` we create.
 
-- Inside that folder create a new file named `ProductContext.js`
+[x] Inside that folder create a new file named `ProductContext.js`
 
-- In this file, import the `createContext` function from the react library and create our `ProductContext`.
+[x] In this file, import the `createContext` function from the react library and create our `ProductContext`.
 
 **STEP 2 - Providing data with ProductContext**
 
-- Now that we've created our `ProductContext` we can import into our `App.js`. Now we can start providing data across our application!
+[x] Now that we've created our `ProductContext` we can import into our `App.js`. Now we can start providing data across our application!
 
-- Wrap all of your components/routes in `App.js` inside of `ProductContext.Provider` component.
+[x] Wrap all of your components/routes in `App.js` inside of `ProductContext.Provider` component.
 
-- Next pass a value prop to your `Provider`.
+[x] Next pass a value prop to your `Provider`.
 
-- In the value prop we'll pass in the products state, and an addItem function that will allow us to add books to the cart.
+[x] In the value prop we'll pass in the products state, and an addItem function that will allow us to add books to the cart.
 
 ```js
 <ProductContext.Provider value={{ products, addItem }}>
 ```
 
-- Now that we're providing our products state and addItem function we can refactor our products route to no longer use render props.
+[x] Now that we're providing our products state and addItem function we can refactor our products route to no longer use render props.
 
 **Before**
 
@@ -66,7 +66,7 @@ Before you get started, please take a few minutes and get acquainted with this a
 <Route exact path="/" component={Products} />
 ```
 
-- After refactoring you'll notice a few errors... Don't worry we'll clean those up shortly!
+[x] After refactoring you'll notice a few errors... Don't worry we'll clean those up shortly!
 
 **STEP 3 - Consuming data with ProductContext**
 
