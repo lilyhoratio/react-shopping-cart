@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import data from "./data";
 
@@ -13,8 +13,17 @@ import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const [products] = useState(data);
-  const [cart, setCart] = useState([]);
-  //   console.log("CART		:", cart);
+  const [cart, setCart] = useState(
+    window.localStorage.getItem("products")
+      ? JSON.parse(window.localStorage.getItem("products"))
+      : []
+  );
+  console.log("CART		:", cart);
+
+  useEffect(() => {
+    window.localStorage.setItem("products", JSON.stringify(cart));
+    window.localStorage.setItem("productsDate", JSON.stringify(Date.now()));
+  }, [cart]);
 
   const addItem = item => {
     const newItem = {
@@ -39,7 +48,6 @@ function App() {
     });
     // console.log("delete id", filteredItems);
     setCart(filteredItems);
-    console.log("after removed cart state		:", cart);
   };
 
   return (
